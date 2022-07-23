@@ -4,8 +4,8 @@
 
 // Allocators
 #include <memory>
-#include "aggressive_allocator.hpp"
-#include "static_allocator.hpp"
+#include "allocators/aggressive_allocator.hpp"
+#include "allocators/static_allocator.hpp"
 
 int main(void) {
     constexpr std::size_t n = 100'000; 
