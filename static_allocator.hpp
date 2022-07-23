@@ -23,7 +23,7 @@ struct memory_full : std::bad_alloc {
     virtual const char* what() const noexcept {
         return m_what.c_str();
     } 
-}; };
+};
 
 /*
  * static_allocator<T, MAX_ALLOC> is an allocator which will only allocate
