@@ -40,7 +40,7 @@ struct static_allocator : std::allocator<T> {
     [[nodiscard]] constexpr T* allocate(std::size_t n) {
         if(i + n >= MAX_ALLOC) {
             /*note: While constructing a type_info and ostringstream 
-             * (inside (memory_full constructor) may be quite expensive
+             * (inside memory_full constructor) may be quite expensive
              * this exception is probably to only be thrown once thus making
              * this call quite negligible. */
             throw memory_full(typeid(T).name(), MAX_ALLOC);
