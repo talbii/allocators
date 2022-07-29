@@ -2,28 +2,8 @@
 #define talbi__STATIC_ALLOCATOR_HPP 
 
 #include <memory>
-#include <new>
-#include <cstddef>
-#include <string>
-#include <sstream>
 #include <typeinfo>
-
-/*
- * Associated with static_allocator. 
- *  Thrown when attempting to allocate more then MAX_ALLOC bytes. */
-struct memory_full : std::bad_alloc {
-    std::string m_what;
-    memory_full(const std::string& T_str, const std::size_t& max_alloc) {
-        std::ostringstream stream;
-
-        stream << "memory_full(" << T_str << ", " << max_alloc << ".\n";
-        m_what = stream.str();
-    }
-
-    virtual const char* what() const noexcept {
-        return m_what.c_str();
-    } 
-};
+#include "memory_full.hpp"
 
 /*
  * static_allocator<T, MAX_ALLOC> is an allocator which will only allocate
